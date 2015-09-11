@@ -10,3 +10,5 @@ F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\Vag
 F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.exe
 F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.pdb
 F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.csprojResolveAssemblyReference.cache
+F:\CodeFiles\GitRepository\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.exe
+F:\CodeFiles\GitRepository\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.pdb

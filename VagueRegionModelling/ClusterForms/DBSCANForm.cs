@@ -68,9 +68,25 @@ namespace VagueRegionModelling.ClusterForms
             }
             #endregion
 
+            //参数获取
             m_fEps = float.Parse(textBoxEps.Text);
             m_nMinPts = int.Parse(textBoxMinPts.Text);
-            int d = 2;
+
+            //计算得到聚类结果
+            //保存到shp
+            //渲染显示
         }
+
+        private void DBSCAN()
+        {
+            //计算每个数据点相邻的数据点，邻域定义为以该点为中心以边长为2*EPs的网格
+            //定义邻域内相邻的数据点的个数大于m_nMinPts的为核心点
+            //邻域内包含某个核心点的非核心点，定义为边界点
+            //噪音点既不是边界点也不是核心点
+            //各个核心点与其邻域内的所有核心点放在同一个簇中
+            //边界点跟其邻域内的某个核心点放在同一个簇中
+        }
+
+
     }
 }

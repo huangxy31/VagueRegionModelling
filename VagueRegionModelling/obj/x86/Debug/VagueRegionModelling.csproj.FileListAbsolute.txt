@@ -1,0 +1,12 @@
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\bin\Debug\VagueRegionModelling.exe
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\bin\Debug\VagueRegionModelling.pdb
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.ClusterForms.DBSCANForm.resources
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.MainForm.resources
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.Properties.Resources.resources
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.Widgets.ButtonCancle.resources
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.Widgets.TextBoxNum.resources
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.Widgets.InputAndOutput.resources
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.csproj.GenerateResource.Cache
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.exe
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.pdb
+F:\CodeFiles\Working\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.csprojResolveAssemblyReference.cache

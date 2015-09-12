@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Carto;
 using System.Windows.Forms;
+using ESRI.ArcGIS.esriSystem;
 
 namespace VagueRegionModelling.DataOperator
 {
@@ -107,6 +108,13 @@ namespace VagueRegionModelling.DataOperator
                 return false;
             }
             return true;
+        }
+
+        public double UnitsConvert(double dValue,esriUnits outUnits)
+        {
+            IUnitConverter unitConverter = new UnitConverterClass();
+            double newValue = unitConverter.ConvertUnits(dValue, esriUnits.esriMeters, outUnits);
+            return newValue;
         }
     }
 }

@@ -7,6 +7,7 @@ using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Carto;
 using System.Windows.Forms;
 using ESRI.ArcGIS.esriSystem;
+using ESRI.ArcGIS.Geometry;
 
 namespace VagueRegionModelling.DataOperator
 {
@@ -16,6 +17,8 @@ namespace VagueRegionModelling.DataOperator
     public class DataInformation
     {
         private IMapControl3 m_mapControl = null;
+        private ISpatialReference m_spatialReference = null;
+
         private ILayer m_inputLayer = null;
         private string m_inputLayerName = string.Empty;
 
@@ -30,6 +33,7 @@ namespace VagueRegionModelling.DataOperator
         {
             m_mapControl = mapControl;
             m_outputFileName = fileName;
+            m_spatialReference = m_mapControl.SpatialReference;
         }
 
         #region Get member value
@@ -47,6 +51,10 @@ namespace VagueRegionModelling.DataOperator
             if (m_inputLayerName != null && m_inputLayer == null)
                 m_inputLayer = GetLayerByName();
             return m_inputLayer;
+        }
+        public ISpatialReference GetSpatialReference()
+        {
+            return m_spatialReference;
         }
         #endregion
 

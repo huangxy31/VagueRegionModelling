@@ -23,6 +23,18 @@ namespace VagueRegionModelling.DataOperator
             return m_clusters;
         }
 
+        public Cluster GetCluster(int index)
+        {
+            if (index >= 0 && index < m_clusters.Count)
+                return m_clusters[index];
+            else
+                return null;
+        }
+
+        public int GetClusterCount()
+        {
+            return m_clusters.Count;
+        }
         /// <summary>
         /// 添加新簇
         /// </summary>

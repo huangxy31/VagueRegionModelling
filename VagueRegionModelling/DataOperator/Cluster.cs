@@ -32,10 +32,10 @@ namespace VagueRegionModelling.DataOperator
 
         public IPolygon GetConvexHull()
         {
-            if (m_pointsList != null && m_convexHull == null)
-            {
-                m_convexHull = CreateConvexHull();
-            }
+            //if (m_pointsList != null && m_convexHull == null)
+            //{
+            //    m_convexHull = CreateConvexHull();
+            //}
             return m_convexHull;
         }
 
@@ -70,12 +70,21 @@ namespace VagueRegionModelling.DataOperator
         /// 通过簇的点集计算簇的凸包
         /// </summary>
         /// <returns></returns>
-        public IPolygon CreateConvexHull()
+        public void CreateConvexHull(ISpatialReference spatialReference)
         {
             //少于3个点就不做
-            IPolygon convexHull = new PolygonClass();
-            //待完善
-            return convexHull;
+            if (m_pointsList.Count < 3)
+                return;
+            IGeometryCollection geometryCollection = new MultipointClass();
+            for (int i = 0; i < m_pointsList.Count; i++)
+            {
+                geometryCollection.AddGeometry(m_pointsList[i] as IGeometry);
+            }
+            ITopologicalOperator pTopological = geometryCollection as ITopologicalOperator;
+            IGeometry g = pTopological.ConvexHull();
+            IPolygon convexHull = g as IPolygon;
+            convexHull.SpatialReference = spatialReference;
+            m_convexHull = convexHull;
         }
     }
 }

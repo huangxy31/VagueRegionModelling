@@ -41,6 +41,10 @@
     <Reference Include="ESRI.ArcGIS.ADF.Local">
       <Private>False</Private>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.DataSourcesFile, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="ESRI.ArcGIS.Geodatabase, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -94,7 +98,10 @@
     <Compile Include="DataOperator\Cluster.cs" />
     <Compile Include="DataOperator\Clusters.cs" />
     <Compile Include="DataOperator\DataInformation.cs" />
+    <Compile Include="DataOperator\DBSCAN.cs" />
     <Compile Include="DataOperator\DBSCANPoint.cs" />
+    <Compile Include="DataOperator\RenderLayer.cs" />
+    <Compile Include="DataOperator\SaveShapefile.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

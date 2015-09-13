@@ -14,11 +14,11 @@ namespace VagueRegionModelling.DataOperator
 {
     public class DBSCAN
     {
-        private List<DBSCANPoint> m_DBSCANPnts = null;
-        private Clusters m_Clusters = new Clusters();
-        private double m_dEps = 0;
-        private int m_nMinPts = 0;
-        private DataInformation m_dataInfo;
+        private List<DBSCANPoint> m_DBSCANPnts = null;  //将IPoint转化为DBSCANPoint进行计算
+        private Clusters m_Clusters = new Clusters();   //聚类结果
+        private double m_dEps = 0;  //半径
+        private int m_nMinPts = 0;  //最小点数
+        private DataInformation m_dataInfo; //相关信息
 
         public DBSCAN(DataInformation dataInfo, double eps, int minPts)
         {
@@ -27,6 +27,10 @@ namespace VagueRegionModelling.DataOperator
             m_nMinPts = minPts;
         }
 
+        /// <summary>
+        /// 进行聚类操作，并获得结果
+        /// </summary>
+        /// <returns></returns>
         public Clusters GetClusters()
         {
             //建立DBSCANPoints
@@ -43,7 +47,7 @@ namespace VagueRegionModelling.DataOperator
         }
 
         /// <summary>
-        /// 创建DBSCANPoints
+        /// 通过IPoint创建DBSCANPoints
         /// </summary>
         /// <returns></returns>
         private List<DBSCANPoint> CreateDBSCANPoints()
@@ -64,6 +68,9 @@ namespace VagueRegionModelling.DataOperator
             return pnts;
         }
 
+        /// <summary>
+        /// 计算每个数据点相邻的数据点，找出核心点
+        /// </summary>
         private void FindNeighborPoints()
         {
             for (int i = 0; i < m_DBSCANPnts.Count; i++)
@@ -85,6 +92,7 @@ namespace VagueRegionModelling.DataOperator
                     feature = featureCursor.NextFeature();
                 }
                 m_DBSCANPnts[i].SetNeighborPoints(neighborPnts);
+                //标记核心点
                 if (m_DBSCANPnts[i].GetNeighborPoints().Count >= m_nMinPts)
                     m_DBSCANPnts[i].SetPointType(1);
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(featureCursor);
@@ -92,6 +100,9 @@ namespace VagueRegionModelling.DataOperator
 
         }
 
+        /// <summary>
+        /// 标记边界点
+        /// </summary>
         private void FindBorderPoints()
         {
             for (int i = 0; i < m_DBSCANPnts.Count; i++)
@@ -111,6 +122,11 @@ namespace VagueRegionModelling.DataOperator
             }
         }
 
+        /// <summary>
+        /// 通过一点的OID获得一个DBSCANPoint
+        /// </summary>
+        /// <param name="OID"></param>
+        /// <returns></returns>
         private DBSCANPoint GetDBSCANPointByOID(int OID)
         {
             for (int i = 0; i < m_DBSCANPnts.Count; i++)
@@ -123,6 +139,11 @@ namespace VagueRegionModelling.DataOperator
             return null;
         }
 
+        /// <summary>
+        /// 通过一点的OID获得一个DBSCANPoint在m_DBSCANPnts的索引号，以便对m_DBSCANPnts进行修改
+        /// </summary>
+        /// <param name="OID"></param>
+        /// <returns></returns>
         private int GetDBSCANPointIndexByOID(int OID)
         {
             for (int i = 0; i < m_DBSCANPnts.Count; i++)
@@ -135,6 +156,9 @@ namespace VagueRegionModelling.DataOperator
             return -999;
         }
 
+        /// <summary>
+        /// 将聚类点分为不同的簇
+        /// </summary>
         private void CreateClusters()
         {
             int clusterIndex = 1;
@@ -157,6 +181,12 @@ namespace VagueRegionModelling.DataOperator
             }
         }
 
+        /// <summary>
+        /// 通过核心点对簇进行扩展
+        /// </summary>
+        /// <param name="cluster"></param>
+        /// <param name="pntIndex"></param>
+        /// <returns></returns>
         private Cluster ExpandCluster(Cluster cluster, int pntIndex)
         {
             cluster.AddPoint(m_DBSCANPnts[pntIndex].GetPoint());

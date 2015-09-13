@@ -32,10 +32,6 @@ namespace VagueRegionModelling.DataOperator
 
         public IPolygon GetConvexHull()
         {
-            //if (m_pointsList != null && m_convexHull == null)
-            //{
-            //    m_convexHull = CreateConvexHull();
-            //}
             return m_convexHull;
         }
 

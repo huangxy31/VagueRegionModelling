@@ -11,12 +11,15 @@ using ESRI.ArcGIS.Geometry;
 
 namespace VagueRegionModelling.DataOperator
 {
+    /// <summary>
+    /// 储存结果，聚类号在"index"字段中标注
+    /// </summary>
     public class SaveShapefile
     {
-        private IFeatureLayer m_polygonLayer;
-        private IFeatureLayer m_pointLayer;
-        private DataInformation m_dataInfo;
-        private Clusters m_clusters;
+        private IFeatureLayer m_polygonLayer;   //聚类后的凸包图层
+        private IFeatureLayer m_pointLayer; //聚类后的点图层
+        private DataInformation m_dataInfo; //储存文件信息
+        private Clusters m_clusters;    //聚类结果
 
         public SaveShapefile(DataInformation dataInfo, Clusters clusters)
         {
@@ -24,6 +27,9 @@ namespace VagueRegionModelling.DataOperator
             m_clusters = clusters;
         }
 
+        /// <summary>
+        /// 储存凸包shp，聚类号在"index"字段中标注
+        /// </summary>
         public void CreatePolygonShapefile()
         {
             string filePath = m_dataInfo.GetOutputFilePath();
@@ -117,6 +123,9 @@ namespace VagueRegionModelling.DataOperator
              */
         }
 
+        /// <summary>
+        /// 储存点shp，聚类号在"index"字段中标注
+        /// </summary>
         public void CreatePointsShapefile()
         {
             string filePath = m_dataInfo.GetOutputFilePath();

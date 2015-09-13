@@ -18,11 +18,17 @@ namespace VagueRegionModelling.DataOperator
             m_clusters = new List<Cluster>();
         }
 
+        #region Get集合
         public List<Cluster> GetClusters()
         {
             return m_clusters;
         }
 
+        /// <summary>
+        /// 通过聚类号获取簇
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public Cluster GetCluster(int index)
         {
             if (index >= 0 && index < m_clusters.Count)
@@ -31,10 +37,16 @@ namespace VagueRegionModelling.DataOperator
                 return null;
         }
 
+        /// <summary>
+        /// 返回簇的个数
+        /// </summary>
+        /// <returns></returns>
         public int GetClusterCount()
         {
             return m_clusters.Count;
         }
+        #endregion
+
         /// <summary>
         /// 添加新簇
         /// </summary>

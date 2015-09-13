@@ -71,7 +71,7 @@ namespace VagueRegionModelling.ClusterForms
             #endregion
 
             //参数获取
-            m_dEps = m_dataInfo.UnitsConvert(float.Parse(textBoxEps.Text), m_mapControl.MapUnits);
+            m_dEps = m_dataInfo.UnitsConvertToMeters(float.Parse(textBoxEps.Text), m_mapControl.MapUnits);
             m_nMinPts = int.Parse(textBoxMinPts.Text);
 
             //计算得到聚类结果
@@ -80,13 +80,18 @@ namespace VagueRegionModelling.ClusterForms
             SaveShapefile shapefile = new SaveShapefile(m_dataInfo, m_Clusters);
             shapefile.CreatePolygonShapefile();
             shapefile.CreatePointsShapefile();
-            IFeatureLayer layer1 = shapefile.GetPolygonFeatureLayer();
-            IFeatureLayer layer2 = shapefile.GetPointFeatureLayer();
-            //渲染显示
 
-            m_mapControl.AddLayer(layer1 as ILayer);
-            m_mapControl.AddLayer(layer2 as ILayer);
+            IFeatureLayer pointLayer = shapefile.GetPointFeatureLayer();
+            IFeatureLayer polygonLayer = shapefile.GetPolygonFeatureLayer();            
+            //渲染显示
+            RenderLayer layerRenderer = new RenderLayer();
+            layerRenderer.DefinePointUniqueValueRenderer(pointLayer as IGeoFeatureLayer, "index");
+            layerRenderer.DefinePolygonUniqueValueRenderer(polygonLayer as IGeoFeatureLayer, "index");
+            m_mapControl.AddLayer(polygonLayer as ILayer);
+            m_mapControl.AddLayer(pointLayer as ILayer);
             this.m_mapControl.Refresh();
+
+            this.Close();
         }
 
         private void DBSCAN()

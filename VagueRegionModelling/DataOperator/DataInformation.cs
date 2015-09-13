@@ -17,13 +17,13 @@ namespace VagueRegionModelling.DataOperator
     public class DataInformation
     {
         private IMapControl3 m_mapControl = null;
-        private ISpatialReference m_spatialReference = null;
+        private ISpatialReference m_spatialReference = null;    //当前文档的空间参考
 
-        private ILayer m_inputLayer = null;
+        private ILayer m_inputLayer = null; //输入图层
         private string m_inputLayerName = string.Empty;
 
-        private string m_outputFileName = string.Empty;        
-        private string m_outputFilePath = string.Empty;       
+        private string m_outputFileName = string.Empty; //输出shp文件名  
+        private string m_outputFilePath = string.Empty; //输出shp文件路径
         
 
         public DataInformation()
@@ -118,7 +118,13 @@ namespace VagueRegionModelling.DataOperator
             return true;
         }
 
-        public double UnitsConvert(double dValue,esriUnits outUnits)
+        /// <summary>
+        /// 将输入的数据单位转化为米
+        /// </summary>
+        /// <param name="dValue"></param>
+        /// <param name="outUnits"></param>
+        /// <returns></returns>
+        public double UnitsConvertToMeters(double dValue,esriUnits outUnits)
         {
             IUnitConverter unitConverter = new UnitConverterClass();
             double newValue = unitConverter.ConvertUnits(dValue, esriUnits.esriMeters, outUnits);

@@ -4,11 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using ESRI.ArcGIS.Display;
+using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.Geodatabase;
+
 namespace VagueRegionModelling.DataOperator
 {
+    /// <summary>
+    /// 渲染图层
+    /// </summary>
     public class RenderLayer
     {
-        void DefinePolygonUniqueValueRenderer(IGeoFeatureLayer pGeoFeatureLayer, string fieldName)
+        public RenderLayer()
+        { }
+
+        /// <summary>
+        /// 按聚类号对凸包进行渲染
+        /// </summary>
+        /// <param name="pGeoFeatureLayer"></param>
+        /// <param name="fieldName"></param>
+        public void DefinePolygonUniqueValueRenderer(IGeoFeatureLayer pGeoFeatureLayer, string fieldName)
         {
             IRandomColorRamp pRandomColorRamp = new RandomColorRampClass();
             //Create the color ramp for the symbols in the renderer.
@@ -108,10 +123,15 @@ namespace VagueRegionModelling.DataOperator
                 }
             }
             pGeoFeatureLayer.Renderer = (IFeatureRenderer)pUniqueValueRenderer;
-            pGeoFeatureLayer.DisplayField = "Class";
+            pGeoFeatureLayer.DisplayField = fieldName;
         }
 
-        void DefinePointUniqueValueRenderer(IGeoFeatureLayer pGeoFeatureLayer, string fieldName)
+        /// <summary>
+        /// 按聚类号对凸包进行渲染
+        /// </summary>
+        /// <param name="pGeoFeatureLayer"></param>
+        /// <param name="fieldName"></param>
+        public void DefinePointUniqueValueRenderer(IGeoFeatureLayer pGeoFeatureLayer, string fieldName)
         {
             IRandomColorRamp pRandomColorRamp = new RandomColorRampClass();
             //Create the color ramp for the symbols in the renderer.
@@ -211,10 +231,14 @@ namespace VagueRegionModelling.DataOperator
                 }
             }
             pGeoFeatureLayer.Renderer = (IFeatureRenderer)pUniqueValueRenderer;
-            pGeoFeatureLayer.DisplayField = "Class";
+            pGeoFeatureLayer.DisplayField = fieldName;
         }
 
-        void DefinePointSimpleValueRenderer(IGeoFeatureLayer pGeoFeatureLayer)
+        /// <summary>
+        /// 点图层的简单渲染
+        /// </summary>
+        /// <param name="pGeoFeatureLayer"></param>
+        public void DefinePointSimpleValueRenderer(IGeoFeatureLayer pGeoFeatureLayer)
         {
             ISimpleMarkerSymbol pSimpleMarkerSymbol = new SimpleMarkerSymbolClass();
             pSimpleMarkerSymbol.Style = esriSimpleMarkerStyle.esriSMSCircle;

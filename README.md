@@ -1,3 +1,2 @@
 # VagueRegionModelling
-Just a test.
-test twice.
+Clustering algorithms using ArcObjects SDK for ArcGIS 10.2

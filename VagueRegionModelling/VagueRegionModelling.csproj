@@ -88,18 +88,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClusterForms\ASCDTForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClusterForms\ASCDTForm.Designer.cs">
+      <DependentUpon>ASCDTForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClusterForms\DBSCANForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClusterForms\DBSCANForm.Designer.cs">
       <DependentUpon>DBSCANForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClusteringAlgorithm\ASCDT.cs" />
+    <Compile Include="ClusteringAlgorithm\ASCDTSubGraph.cs" />
     <Compile Include="CreateNewDocument.cs" />
     <Compile Include="DataOperator\Cluster.cs" />
     <Compile Include="DataOperator\Clusters.cs" />
     <Compile Include="DataOperator\DataInformation.cs" />
-    <Compile Include="DataOperator\DBSCAN.cs" />
-    <Compile Include="DataOperator\DBSCANPoint.cs" />
+    <Compile Include="ClusteringAlgorithm\DBSCAN.cs" />
+    <Compile Include="ClusteringAlgorithm\DBSCANPoint.cs" />
     <Compile Include="DataOperator\RenderLayer.cs" />
     <Compile Include="DataOperator\SaveShapefile.cs" />
     <Compile Include="MainForm.cs">
@@ -128,6 +136,9 @@
     <Compile Include="Widgets\InputAndOutput.Designer.cs">
       <DependentUpon>InputAndOutput.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ClusterForms\ASCDTForm.resx">
+      <DependentUpon>ASCDTForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClusterForms\DBSCANForm.resx">
       <DependentUpon>DBSCANForm.cs</DependentUpon>
     </EmbeddedResource>

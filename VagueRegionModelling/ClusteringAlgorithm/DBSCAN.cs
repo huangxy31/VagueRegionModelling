@@ -9,8 +9,9 @@ using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geometry;
 using System.IO;
+using VagueRegionModelling.DataOperator;
 
-namespace VagueRegionModelling.DataOperator
+namespace VagueRegionModelling.ClusteringAlgorithm
 {
     public class DBSCAN
     {

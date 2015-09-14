@@ -129,5 +129,11 @@ namespace VagueRegionModelling
             DBSCANForm DBSCANDlg = new DBSCANForm(axMapControl1.Object as IMapControl3);
             DBSCANDlg.Show();
         }
+
+        private void aSCDTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ASCDTForm ASCDTDlg = new ASCDTForm(axMapControl1.Object as IMapControl3);
+            ASCDTDlg.Show();
+        }
     }
 }

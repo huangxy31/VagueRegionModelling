@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using ESRI.ArcGIS.Geometry;
 
-namespace VagueRegionModelling.DataOperator
+namespace VagueRegionModelling.ClusteringAlgorithm
 {
     /// <summary>
     /// 进行DBSCAN算法计算的基本数据结构

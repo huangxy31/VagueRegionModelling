@@ -159,6 +159,7 @@ namespace VagueRegionModelling
             this.aSCDTToolStripMenuItem.Name = "aSCDTToolStripMenuItem";
             this.aSCDTToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aSCDTToolStripMenuItem.Text = "ASCDT";
+            this.aSCDTToolStripMenuItem.Click += new System.EventHandler(this.aSCDTToolStripMenuItem_Click);
             // 
             // axMapControl1
             // 

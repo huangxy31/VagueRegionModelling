@@ -22,3 +22,4 @@ F:\CodeFiles\GitRepository\VagueRegionModelling\VagueRegionModelling\obj\x86\Deb
 F:\CodeFiles\GitRepository\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.Widgets.TextBoxNum.resources
 F:\CodeFiles\GitRepository\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.Widgets.InputAndOutput.resources
 F:\CodeFiles\GitRepository\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.csproj.GenerateResource.Cache
+F:\CodeFiles\GitRepository\VagueRegionModelling\VagueRegionModelling\obj\x86\Debug\VagueRegionModelling.ClusterForms.ASCDTForm.resources

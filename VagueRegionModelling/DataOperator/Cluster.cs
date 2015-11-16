@@ -78,6 +78,8 @@ namespace VagueRegionModelling.DataOperator
             }
             ITopologicalOperator pTopological = geometryCollection as ITopologicalOperator;
             IGeometry g = pTopological.ConvexHull();
+            if (g.GeometryType != esriGeometryType.esriGeometryPolygon)
+                return;
             IPolygon convexHull = g as IPolygon;
             convexHull.SpatialReference = spatialReference;
             m_convexHull = convexHull;
